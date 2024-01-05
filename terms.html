@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Just a Stupid Thought</title>
-    <style>
+        <style>
         * {
             box-sizing: border-box;
             margin: 0;
@@ -17,13 +17,12 @@
             justify-content: center;
             align-items: center;
             background-color: #f4f4f4;
-            /* Background color for the entire page */
             font-family: 'Arial', sans-serif;
         }
 
         .container {
-            margin: 50px 0px;
-            width: 50%;
+            margin: 50px 5%;
+            width: 50%; /* Adjusted container width for smaller screens */
             border: 2px solid #333;
             background-color: #fff;
             border-radius: 12px;
@@ -32,7 +31,7 @@
 
         .title {
             text-align: center;
-            padding: 30px 0px;
+            padding: 20px 0; /* Adjusted padding for smaller screens */
             background-color: #333;
             color: #fff;
             font-size: 24px;
@@ -41,7 +40,7 @@
         }
 
         .terms {
-            padding: 30px 20px;
+            padding: 20px; /* Adjusted padding for smaller screens */
             text-align: justify;
             background-color: #eee;
             font-size: 17px;
@@ -53,7 +52,7 @@
         }
 
         .agree {
-            padding: 20px;
+            padding: 20px; /* Adjusted padding for smaller screens */
             text-align: justify;
             background-color: #333;
             color: #fff;
@@ -75,6 +74,20 @@
         #nextButton:disabled {
             background-color: #ccc;
             cursor: not-allowed;
+        }
+
+        @media screen and (max-width: 600px) {
+            .title {
+                font-size: 17px; /* Adjusted font size for smaller screens */
+            }
+
+            .terms,
+            .agree {
+                font-size: 14px; /* Adjusted font size for smaller screens */
+            }
+            .container{
+                width: 90%;
+            }
         }
     </style>
 </head>
