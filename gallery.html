@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Carousel</title>
+
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #eee;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        #carousel-container {
+            width: 70%;
+            overflow: hidden;
+            margin: 20px;
+            position: relative;
+        }
+
+        #carousel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 70vw; /* Adjusted the width to 100vw */
+            box-sizing: border-box;
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: #eee;
+            border-radius: 5px;
+        }
+
+        img {
+            width: auto; /* Make the image responsive */
+            height: 80vh;
+            max-width: 100%;
+            display: block;
+            margin: 0 auto; /* Center the image */
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            font-size: 18px;
+            text-decoration: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        button.left {
+            left: 11vw;
+        }
+
+        button.right {
+            right: 11vw;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .fa-arrow-left,
+        .fa-arrow-right {
+            font-size: 24px;
+            margin: 0 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="left" onclick="prevSlide()"><i class="fas fa-arrow-left"></i></button>
+    <button class="right" onclick="nextSlide()"><i class="fas fa-arrow-right"></i></button>
+    <div id="carousel-container">
+        <div id="carousel">
+            <div class="slide">
+                <h2>Our first ever photos together</h2>
+                <img src="images/jagrata.jpg" alt="jagrata">
+            </div>
+            <div class="slide">
+                <h2>Only photos where we both look good</h2>
+                <img src="images/pec.jpg" alt="jagrata">
+            </div>
+            <div class="slide">
+                <h2>I noticed in every good photo one of us is wearing purple</h2>
+                <img src="images/apratim.jpg" alt="jagrata">
+            </div>
+            <div class="slide">
+                <h2>Photos which i consider good, you maybe don't</h2>
+                <img src="images/random.jpg" alt="jagrata">
+            </div>
+            <div class="slide">
+                <h2>Just You bombing my photos</h2>
+                <img src="images/bomb.jpg" alt="jagrata">
+            </div>
+            <div class="slide">
+                <h2>Our Last photos together</h2>
+                <img src="images/farewell.jpg" alt="jagrata">
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+    <script>
+        let currentIndex = 0;
+
+        function showSlide(index) {
+            const carousel = document.getElementById('carousel');
+            const slides = document.querySelectorAll('.slide');
+            const totalSlides = slides.length;
+
+            if (index < 0) {
+                currentIndex = totalSlides - 1;
+            } else if (index >= totalSlides) {
+                currentIndex = 0;
+            } else {
+                currentIndex = index;
+            }
+
+            const translateValue = -currentIndex * 100 + '%';
+            carousel.style.transform = 'translateX(' + translateValue + ')';
+        }
+
+        function nextSlide() {
+            showSlide(currentIndex + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentIndex - 1);
+        }
+
+        // Auto slide change (uncomment if needed)
+        // setInterval(nextSlide, 3000);
+    </script>
+</body>
+
+</html>
