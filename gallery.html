@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Just a Stupid Thought</title>
+    <title>Image Carousel</title>
 
-    <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
     <style>
@@ -34,7 +33,7 @@
         }
 
         .slide {
-            min-width: 70vw; /* Adjusted the width to 100vw */
+            min-width: 70vw;
             box-sizing: border-box;
             text-align: center;
             padding: 20px;
@@ -44,11 +43,11 @@
         }
 
         img {
-            width: auto; /* Make the image responsive */
-            height: 80vh;
+            width: 40vw;
+            height: auto;
             max-width: 100%;
             display: block;
-            margin: 0 auto; /* Center the image */
+            margin: 0 auto;
         }
 
         button {
@@ -83,7 +82,30 @@
             font-size: 24px;
             margin: 0 5px;
         }
+
+        @media screen and (max-width: 600px) {
+            .slide {
+                min-width: 70vw;
+            }
+
+            img {
+                width: 90vw;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+
+            button.left {
+                left: 0.5vw;
+            }
+
+            button.right {
+                right: 0.5vw;
+            }
+        }
     </style>
+
 </head>
 
 <body>
@@ -147,8 +169,6 @@
             showSlide(currentIndex - 1);
         }
 
-        // Auto slide change (uncomment if needed)
-        // setInterval(nextSlide, 3000);
     </script>
 </body>
 
